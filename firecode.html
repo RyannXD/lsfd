@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1280">
+<title>Fire Code</title>
+<link rel="icon" type="image/png" href="img/lsfd.png">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Montserrat,sans-serif;background:#e9e9e9}
+.top-blue{
+background:#0c2f4e;color:#fff;height:52px;
+display:flex;align-items:center;justify-content:space-between;
+padding:0 18px;font-size:12px
+}
+.top-buttons a{
+color:#fff;text-decoration:none;border:1px solid rgba(255,255,255,.5);
+padding:8px 12px;border-radius:6px;margin-left:8px
+}
+.emergency{
+background:#000;color:#fff;text-align:center;
+padding:10px;font-weight:600;letter-spacing:3px
+}
+.emergency b{font-size:24px}
+.banner{
+background:#bf0d0d;color:#fff;text-align:center;
+padding:22px 20px 26px
+}
+.banner .welcome{
+font-size:11px;font-weight:600;letter-spacing:2px
+}
+.banner h1{
+font-size:30px;letter-spacing:5px;font-weight:700;margin-top:8px
+}
+.nav-wrap{
+position:relative;
+background:#2f2c2c;
+height:80px;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+.logo-circle{
+position:absolute;
+left:50%;
+transform:translateX(-50%);
+top:-28px;
+width:140px;
+height:140px;
+border-radius:80%;
+background:#000000;
+border:5px solid #3a3838;
+text-decoration:none;
+display:flex;
+align-items:center;
+justify-content:center;
+z-index:1000;
+box-shadow:0 4px 12px rgba(0,0,0,0.25);
+overflow:hidden;
+}
+.logo-circle img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+.nav a{
+    color:#fff;
+    text-decoration:none;
+    font-weight:500;
+    letter-spacing:2px;
+    padding:28px 24px;
+    display:block;
+}
+
+/* Hover */
+.nav a:hover{
+    background:#fff;
+    color:#a73f3f;
+}
+
+/* Menu aktif */
+.nav a.active{
+    background:#fff;
+    color:#a73f3f;
+}
+.nav{
+max-width:1200px;
+margin:auto;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:30px;
+flex-wrap:wrap;
+padding:0 20px;
+}
+.nav a{
+color:#fff;
+text-decoration:none;
+font-weight:600;
+font-size:15px;
+letter-spacing:1.5px;
+font-weight:500;
+letter-spacing:.5px;
+padding:20px 0;
+position: relative;
+}
+.nav a:hover{
+color:#d6b331;
+}
+
+/* LAFD STYLE MEGA MENU */
+.dropdown{
+    position:relative;
+}
+.dropdown-content{
+    display:none;
+    position:absolute;
+    top:100%;
+    left:20%;
+    transform:translateX(-75%);
+    width:min(490px, 95vw);
+    background:#ffffff;
+    padding:40px 50px;
+    box-shadow:0 8px 30px rgba(0,0,0,.18);
+    z-index:100;
+}
+.dropdown-content .column{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    column-gap:1px;
+    row-gap:10px;
+}
+.dropdown-content a{
+    color:#9b4343;
+    text-decoration:none;
+    font-size:13px;
+    font-weight:500;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    display:block;
+    white-space:normal;
+}
+.dropdown-content a:hover{
+    color:#bf0d0d;
+}
+.dropdown:hover .dropdown-content{
+    display:block;
+}
+html,body{
+    overflow-x:hidden;
+}
+.services-menu{
+    width:280px;
+    padding:10px 0;
+    left:50%;
+    transform:translateX(-14%);
+}
+.services-menu a{
+    display:block;
+    padding:18px 25px;
+    color:#9b4343;
+    background:#fff;
+    text-transform:uppercase;
+    letter-spacing:2px;
+    line-height:1.4;
+}
+.services-menu a:hover{
+    background:#f5f5f5;
+    transform:translateX(3px);
+}
+.join-menu{
+    width:170px;
+    padding:15px 0;
+    left:50%;
+    transform:translateX(-12%);
+}
+.join-menu a{
+    color:#9b4343;
+    padding:10px 35px;
+    display:block;
+    background:#fff;
+}
+.join-menu a:hover{
+    background:#f4f4f4;
+}
+.prevention-menu{
+    width:500px;
+    padding:30px 40px;
+    left:50%;
+    transform:translateX(-20%);
+}
+.prevention-menu .column{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    column-gap:60px;
+    row-gap:1px;
+}
+.prevention-menu a{
+    color:#9b4343;
+    text-decoration:none;
+    text-transform:uppercase;
+    letter-spacing:1.5px;
+    font-size:14px;
+    line-height:1.2;
+}
+.prevention-menu a:hover{
+    color:#bf0d0d;
+}
+.safety-menu{
+    width:200px;
+    padding:10px 0;
+}
+.safety-menu a{
+    display:block;
+    padding:13px 25px;
+    color:#9b4343;
+    background:#fff;
+    text-transform:uppercase;
+    letter-spacing:1.5px;
+    font-size:14px;
+}
+.safety-menu a:hover{
+    background:#f5f5f5;
+}
+.happening-menu{
+    width:220px;
+    padding:10px 0;
+    left:50%;
+    transform:translateX(-35%);
+}
+.happening-menu a{
+    display:block;
+    padding:15px 20px;
+    color:#9b4343;
+    background:#fff;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    font-size:14px;
+}
+.happening-menu a:hover{
+    background:#f5f5f5;
+    color:#bf0d0d;
+}
+.cards-section{
+    background:#c90f14;
+    padding:50px;
+    display:flex;
+    grid-template-columns:repeat(3,1fr);
+    gap:50px;
+}
+.card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+.card h3{
+    color:white;
+    margin-top:20px;
+    text-align:center;
+    letter-spacing:2px;
+}
+.card p{
+    color:white;
+    line-height:1.8;
+}
+.card a{
+    color:white;
+    font-weight:bold;
+    display:inline;
+}
+.support-banner{
+    background:url('img/banner.jpg') center/cover;
+    height:450px;
+}
+.overlay{
+    background:rgba(0,0,0,.45);
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+.overlay h2{
+    color:white;
+    max-width:900px;
+    text-align:center;
+    line-height:1.8;
+}
+.support-btn{
+    border:2px solid white;
+    color:white;
+    padding:15px 40px;
+    text-decoration:none;
+    margin-top:30px;
+}
+.quick-links{
+    background:#373438;
+    padding:70px 40px 60px;
+}
+
+.quick-links h2{
+    text-align:center;
+    color:#e5e5e5;
+    font-size:38px;
+    font-weight:300;
+    letter-spacing:4px;
+    margin-bottom:60px;
+}
+
+.quick-grid{
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:60px;
+}
+
+.quick-column h3{
+    color:#f0f0f0;
+    font-size:18px;
+    font-weight:400;
+    margin-bottom:15px;
+    letter-spacing:1px;
+}
+.quick-column a{
+    display:block;
+    color:#c8c8c8;
+    text-decoration:none;
+    line-height:1.9;
+    font-size:13px;
+}
+.quick-column a::before{
+    content:"— ";
+}
+.quick-column a:hover{
+    color:#ffffff;
+}
+.official-site{
+display:flex;
+align-items:center;
+gap:10px;
+}
+.official-site img{
+width:22px;
+height:22px;
+object-fit:contain;
+}
+.official-site span{
+color:white;
+}
+.firstaid-hero{
+height:340px;
+background:
+linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.35)),
+url('img/lsfd-hero.jpg') center/cover;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.firstaid-hero h1{
+color:white;
+font-size:72px;
+font-weight:700;
+letter-spacing:2px;
+}
+
+.firstaid-content{
+max-width:1100px;
+margin:auto;
+padding:50px 30px;
+background:#f5f5f5;
+}
+
+.firstaid-intro{
+font-size:22px;
+line-height:1.8;
+color:#666;
+max-width:900px;
+margin:auto;
+text-align:center;
+}
+
+.firstaid-grid{
+margin-top:60px;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:40px;
+text-align:center;
+}
+
+.firstaid-item img{
+width:200px;
+height:200px;
+object-fit:contain;
+}
+.firstaid-item h3{
+margin-top:15px;
+font-size:17px;
+font-weight:500;
+color:#9b4343;
+text-transform:uppercase;
+}
+.firstaid-item a{
+text-decoration:none;
+}
+.firstaid-item:hover{
+transform:translateY(0px);
+}
+/* HERO */
+.hero{
+height:430px;
+background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.55)), 
+            url('img/lsfd-hero.jpg') center/cover no-repeat;
+background-size: cover;
+background-position: center;
+border-top:2px solid #555;
+}
+
+/* Bagian Bawah */
+.happening-now { background: #fff; padding: 60px 20px 40px; }
+.container { max-width: 1200px; margin: 0 auto; }
+.section-title { text-align: center; color: #bf0d0d; font-size: 42px; margin-bottom: 50px; font-weight: 700; }
+
+.news-container { display: grid; grid-template-columns: 80px 1fr; gap: 30px; max-width: 900px; margin: 0 auto; }
+.social-sidebar { background: #222; color: #fff; display: flex; flex-direction: column; align-items: center; padding: 20px 10px; border-radius: 8px; }
+.social-sidebar i { font-size: 28px; margin: 28px 0; opacity: 0.9; }
+.news-list .news-item { margin-bottom: 35px; padding-bottom: 25px; border-bottom: 1px solid #eee; }
+.news-list .news-item:last-child { border-bottom: none; margin-bottom: 0; }
+.news-date { color: #666; font-size: 14px; margin-bottom: 6px; }
+.news-title { color: #bf0d0d; font-weight: 600; font-size: 17px; line-height: 1.4; margin-bottom: 8px; }
+.news-desc { color: #444; font-size: 15px; line-height: 1.5; }
+
+.more-news { text-align: center; margin: 50px 0 30px; }
+.more-news button {
+    background: #bf0d0d; color: white; border: none; padding: 14px 45px;
+    font-size: 16px; font-weight: 600; cursor: pointer; border-radius: 4px;
+}
+.alerts { background: #222; color: white; text-align: center; padding: 50px 20px; }
+.alerts button {
+    background: transparent; color: white; border: 2px solid white;
+    padding: 16px 50px; font-size: 17px; font-weight: 600; cursor: pointer;
+}
+.gallery { display: flex; gap: 10px; padding: 20px; background: #bf0d0d; }
+.gallery img { flex: 1; height: 260px; object-fit: cover; border: 4px solid white; }
+.footer{
+background:#222;color:#fff;text-align:center;padding:40px;margin-top:40px
+}
+@media(max-width:900px){
+.banner h1{font-size:34px}
+.nav{gap:15px;padding:10px 15px}
+.nav-wrap{height:auto;padding:15px 0}
+.logo-circle{width:90px;height:90px;top:-40px;}
+.dropdown-content { width: 90%; }
+.dropdown-content .column { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="top-blue">
+<div class="official-site">
+<img src="img/city-logo.png" alt="City Logo">
+<span>An Official Website of the City of Los Santos</span>
+</div>
+<div class="top-buttons">
+<a href="#">City Services</a>
+<a href="#">City Directory</a>
+</div>
+</div>
+
+<div class="emergency">
+TO REPORT AN EMERGENCY CALL <b>9-1-1</b>
+</div>
+
+<div class="banner">
+<div class="welcome">WELCOME TO THE</div>
+<h1>
+    <span translate="no">LOS SANTOS FIRE DEPARTMENT</span>
+</h1>
+</div>
+
+<div class="nav-wrap">
+<a href="index.html" class="logo-circle">
+    <img src="img/lsfd.png">
+</a>
+<div class="nav">
+<div class="dropdown">
+    <a href="#" class="notranslate" translate="no">HAPPENING NOW</a>
+
+    <div class="dropdown-content happening-menu">
+    <a href="alerts.html">ALERTS</a>
+    <a href="news.html">NEWS</a>
+        <a href="redflag.html">RED FLAG</a>
+    </div>
+</div>
+
+<a href="findyourstation.html" class="notranslate" translate="no">FIRE STATIONS</a>
+
+<div class="dropdown">
+    <a href="#" class="notranslate" translate="no">SAFETY</a>
+
+    <div class="dropdown-content safety-menu">
+        <a href="firstaid.html">FIRST AID</a>
+        <a href="homesafety.html">HOME SAFETY</a>
+    </div>
+</div>
+
+<a href="#" class="notranslate" translate="no">EMS</a>
+
+<div class="dropdown">
+    <a href="#" class="notranslate" translate="no">PREVENTION</a>
+
+    <div class="dropdown-content prevention-menu">
+        <div class="column">
+
+            <a href="firecode.html">Fire Code</a>
+            <a href="maintenance.html">THE LEGAL UNIT</a>
+
+            <a href="maintenance.html">BRUSH</a>
+            <a href="maintenance.html">OIL WELLS</a>
+
+            <a href="maintenance.html">CHIEF'S REGULATION 4</a>
+            <a href="maintenance.html">PUBLIC ASSEMBLAGE</a>
+
+            <a href="maintenance.html">CUPA</a>
+            <a href="maintenance.html">SCHOOLS & CHURCHES</a>
+
+            <a href="maintenance.html">FIRE DEVELOPMENT SERVICES</a>
+            <a href="maintenance.html">HYDRANTS & ACCESS</a>
+
+            <a href="maintenance.html">INDUSTRIAL & COMMERCIAL</a>
+            <a href="maintenance.html">SMOKING COMPLAINTS</a>
+
+        </div>
+    </div>
+</div>
+
+<div class="dropdown">
+    <a href="#" class="notranslate" translate="no">SERVICES</a>
+<div class="dropdown-content services-menu">
+    <a href="administrative.html">ADMINISTRATIVE SERVICES BUREAU</a>
+    <a href="fireprevention.html">FIRE PREVENTION BUREAU</a>
+</div>
+</div>
+  
+ <div class="dropdown">
+    <a href="#" class="notranslate" translate="no">JOIN</a>
+
+    <div class="dropdown-content join-menu">
+        <a href="maintenance.html">CAREERS</a>
+        <a href="maintenance.html">VOLUNTEER</a>
+    </div>
+</div>
+
+<div class="dropdown">
+    <a href="#" class="notranslate" translate="no">ABOUT</a>
+    <div class="dropdown-content">
+        <div class="column">
+            <a href="maintenance.html">ABOUT LSFD</a>
+            <a href="maintenance.html">FAQS</a>
+            <a href="maintenance.html">ORGANIZATION</a>
+            <a href="maintenance.html">SPECIAL OPERATIONS</a>
+            <a href="maintenance.html">HISTORY</a>
+            <a href="maintenance.html">COMMUNITY RELATIONS</a>
+            <a href="maintenance.html">EAST BUREAU</a>
+            <a href="maintenance.html">FIRE RECORDS & CPRA REQUEST</a>
+            <a href="maintenance.html">WEST BUREAU</a>
+            <a href="maintenance.html">CONTACT</a>
+            <a href="maintenance.html">EMERGENCY MEDICAL SERVICES BUREAU</a>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+<section class="firstaid-hero">
+    <h1>FIRE CODE</h1>
+</section>
+<section class="firstaid-content">
+
+<p class="firstaid-intro">
+The Fire Code is part of the overall Los Santos City Code and is a combination 
+of Los Santos amendments. The Adopting Ordinance indicates which part of the 
+The adopted Los Santos Fire Code and any changes that have been made.
+</p>
+</section>
+
+<section class="quick-links">
+
+    <h2>QUICK LINKS</h2>
+
+    <div class="quick-grid">
+
+        <div class="quick-column">
+            <h3>LOCAL</h3>
+
+            <a href="findyourstation.html">Find Your Station</a>
+            <a href="maintenance.html">Evacuation Info</a>
+            <a href="maintenance.html">Disaster Readiness</a>
+            <a href="maintenance.html">Volunteer</a>
+            <a href="maintenance.html">Smoking Violation</a>
+        </div>
+
+        <div class="quick-column">
+            <h3>STAY UP TO DATE</h3>
+
+            <a href="alerts.html">Alerts</a>
+            <a href="news.html">News</a>
+            <a href="https://discord.gg/vtEF8GShhn">Discord</a>
+        </div>
+
+        <div class="quick-column">
+            <h3>FIRE PREVENTION</h3>
+
+            <a href="firecode.html">Fire Code</a>
+            <a href="maintenance.html">Brush</a>
+            <a href="maintenance.html">Public Education</a>
+            <a href="maintenance.html">Schools Program</a>
+            <a href="maintenance.html">Commercial</a>
+        </div>
+
+        <div class="quick-column">
+            <h3>ABOUT</h3>
+
+            <a href="maintenance.html">Organization</a>
+            <a href="maintenance.html">Special Operations</a>
+            <a href="administrative.html">Administrative Services</a>
+            <a href="fireprevention.html">Fire Prevention Bureau</a>
+            <a href="https://discord.gg/vtEF8GShhn">Contact LSFD</a>
+        </div>
+
+    </div>
+
+</section>
+
+<div class="footer">
+© 2026 Los Santos Fire Department - Roleplay Community
+</div>
+
+</body>
+</html>
